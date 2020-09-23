@@ -30,7 +30,7 @@ int main()
             case 2:
                 Problema2();
                 break;
-            case 4:
+            /*case 4:
                 Problema4();
                 break;
             case 6:
@@ -56,11 +56,73 @@ int main()
                 break;
             case 17:
                 Problema17();
-                break;
+                break;*/
             default:
                 break;
             }
         }
     }while(a!=0);
     return 0;
+}
+
+void Problema2()
+{
+    int Dinero;
+    cout << "Ingrese la cantidad de dinero a convertir" << endl;
+    cin >> Dinero;
+    int i=1;
+    while(i<11)
+    {
+        //Se usa un iterador para cambiar las divisiones y modulos
+        switch (i)
+        {
+        case 1:
+            cout << "50000: " << Dinero/50000 << endl;
+            Dinero=Dinero%50000;
+            break;
+        case 2:
+            cout << "20000: " << Dinero/20000 << endl;
+            Dinero=Dinero%20000;
+            break;
+        case 3:
+            cout << "10000: " << Dinero/10000 << endl;
+            Dinero=Dinero%10000;
+            break;
+        case 4:
+            cout << "5000: " << Dinero/5000 << endl;
+            Dinero=Dinero%5000;
+            break;
+        case 5:
+            cout << "2000: " << Dinero/2000 << endl;
+            Dinero=Dinero%2000;
+            break;
+        case 6:
+            cout << "1000: " << Dinero/1000 << endl;
+            Dinero=Dinero%1000;
+            break;
+        case 7:
+            cout << "500: " << Dinero/500 << endl;
+            Dinero=Dinero%500;
+            break;
+        case 8:
+            cout << "200: " << Dinero/200 << endl;
+            Dinero=Dinero%200;
+            break;
+        case 9:
+            cout << "100: " << Dinero/100 << endl;
+            Dinero=Dinero%100;
+            break;
+        case 10:
+            cout << "50: " << Dinero/50 << endl;
+            Dinero=Dinero%50;
+            break;
+        default:
+            break;
+        }
+        i++;
+    }
+    if(Dinero!=0)
+    {
+        cout << "Faltante: " << Dinero << endl;
+    }
 }

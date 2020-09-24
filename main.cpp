@@ -13,6 +13,10 @@ void Problema13();
 void Problema15();
 void Problema17();
 
+// Funciones auxiliares
+
+bool ValidarHora(int);
+
 int main()
 {
     int a;
@@ -30,10 +34,10 @@ int main()
             case 2:
                 Problema2();
                 break;
-            /*case 4:
+            case 4:
                 Problema4();
                 break;
-            case 6:
+            /*case 6:
                 Problema6();
                 break;
             case 7:
@@ -68,7 +72,7 @@ int main()
 void Problema2()
 {
     int Dinero;
-    cout << "Ingrese la cantidad de dinero a convertir" << endl;
+    cout << "Ingrese la cantidad de dinero a convertir (0 para salir)" << endl;
     cin >> Dinero;
     int i=1;
     while(i<11)
@@ -121,8 +125,62 @@ void Problema2()
         }
         i++;
     }
-    if(Dinero!=0)
+    cout << "Faltante: " << Dinero << endl;
+}
+
+void Problema4()
+{
+    int Hora1, Hora2;
+    cout << "Ingrese la primera hora" << endl;
+    cin >> Hora1;
+    if(!ValidarHora(Hora1))
     {
-        cout << "Faltante: " << Dinero << endl;
+        cout << Hora1 << " es un tiempo invalido." << endl;
     }
+    else
+    {
+        cout << "Ingrese la segunda hora" << endl;
+        cin >> Hora2;
+        if(!ValidarHora(Hora2))
+        {
+            cout << Hora2 << " es un tiempo invalido." << endl;
+        }
+        else
+        {
+            int HoraFinalProvisional=Hora1+Hora2, HoraFinal=0;
+            /*HoraFinal=(HoraFinalProvisional%100)%60;
+            HoraFinal+=((HoraFinalProvisional/100)%24);*/
+            if(HoraFinalProvisional%100>=60)
+            {
+                HoraFinal=(HoraFinalProvisional%100)%60;
+                HoraFinal+=100;
+            }
+            else
+            {
+                HoraFinal=(HoraFinalProvisional%100)%60;
+            }
+            if((HoraFinalProvisional/24)>=24)
+            {
+                HoraFinal+=((HoraFinalProvisional/100)%24)*100;
+            }
+            else
+            {
+                HoraFinal+=(HoraFinalProvisional/100)*100;
+            }
+            cout << "La hora es: " << HoraFinal << endl;
+        }
+    }
+}
+
+bool ValidarHora(int Hora)
+{
+    if(Hora%100>=60)
+    {
+        return false;
+    }
+    else if((Hora/100)>23 or (Hora/100)<0)
+    {
+        return false;
+    }
+    return true;
 }

@@ -16,6 +16,7 @@ void Problema17();
 // Funciones auxiliares
 
 bool ValidarHora(int);
+float Factorial(int);
 
 int main()
 {
@@ -37,10 +38,10 @@ int main()
             case 4:
                 Problema4();
                 break;
-            /*case 6:
+            case 6:
                 Problema6();
                 break;
-            case 7:
+            /*case 7:
                 Problema7();
                 break;
             case 9:
@@ -148,8 +149,6 @@ void Problema4()
         else
         {
             int HoraFinalProvisional=Hora1+Hora2, HoraFinal=0;
-            /*HoraFinal=(HoraFinalProvisional%100)%60;
-            HoraFinal+=((HoraFinalProvisional/100)%24);*/
             if(HoraFinalProvisional%100>=60)
             {
                 HoraFinal=(HoraFinalProvisional%100)%60;
@@ -174,6 +173,7 @@ void Problema4()
 
 bool ValidarHora(int Hora)
 {
+    // Se revisa que el numero ingresado sea valido como hora
     if(Hora%100>=60)
     {
         return false;
@@ -183,4 +183,34 @@ bool ValidarHora(int Hora)
         return false;
     }
     return true;
+}
+
+void Problema6()
+{
+    int Cantidad;
+    cout << "Ingrese el numero de elementos de la aproximacion" << endl;
+    cin >> Cantidad;
+    float Aproximacion=0;
+    for(int i=0; i<Cantidad; i++)
+    {
+        Aproximacion+=1/Factorial(i);
+    }
+    cout << "e es aproximadamente " << Aproximacion << endl;
+}
+
+float Factorial(int Numero)
+{
+    float Multiplicacion=1;
+    for(int i=Numero; i>=0; i--)
+    {
+        if(i==0)
+        {
+            Multiplicacion*=1;
+        }
+        else
+        {
+            Multiplicacion*=i;
+        }
+    }
+    return Multiplicacion;
 }

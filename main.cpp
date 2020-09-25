@@ -18,6 +18,7 @@ void Problema17();
 
 bool ValidarHora(int);
 float Factorial(int);
+bool Primo(int);
 
 int main()
 {
@@ -54,10 +55,10 @@ int main()
             case 12:
                 Problema12();
                 break;
-            /*case 13:
+            case 13:
                 Problema13();
                 break;
-            case 15:
+            /*case 15:
                 Problema15();
                 break;
             case 17:
@@ -302,4 +303,37 @@ void Problema12()
         }
     }
     cout << "El factor primo maximo es: " << FactorPrimo << endl;
+}
+
+void Problema13()
+{
+    int Numero;
+    cout << "Ingrese un numero" << endl;
+    cin >> Numero;
+    int Suma=0;
+    for(int i=2; i<Numero; i++)
+    {
+        if(Primo(i))
+        {
+            Suma+=i;
+        }
+    }
+    cout << "El resultado de la suma es: "<< Suma << endl;
+}
+
+bool Primo(int Numero)
+{
+    int Factores=2;
+    for(int i=2; i<=Numero/2; i++)
+    {
+        if(Numero%i==0)
+        {
+            Factores++;
+        }
+        if(Factores>2)
+        {
+            return false;
+        }
+    }
+    return true;
 }

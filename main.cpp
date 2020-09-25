@@ -41,10 +41,10 @@ int main()
             case 6:
                 Problema6();
                 break;
-            /*case 7:
+            case 7:
                 Problema7();
                 break;
-            case 9:
+            /*case 9:
                 Problema9();
                 break;
             case 11:
@@ -213,4 +213,22 @@ float Factorial(int Numero)
         }
     }
     return Multiplicacion;
+}
+
+void Problema7()
+{
+    int PrimerNumero=1, SegundoNumero=1, CotaSuperior, SumaTotal=0;
+    cout << "Ingrese la cota superior" << endl;
+    cin >> CotaSuperior;
+    while(PrimerNumero+SegundoNumero<CotaSuperior)
+    {
+        int Total=PrimerNumero+SegundoNumero;
+        if((Total)%2==0)
+        {
+            SumaTotal+=Total;
+        }
+        PrimerNumero=SegundoNumero;
+        SegundoNumero=Total;
+    }
+    cout << "El resultado de la suma es: " << SumaTotal << endl;
 }

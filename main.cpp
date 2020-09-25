@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -47,10 +48,10 @@ int main()
             case 9:
                 Problema9();
                 break;
-            /*case 11:
+            case 11:
                 Problema11();
                 break;
-            case 12:
+            /*case 12:
                 Problema12();
                 break;
             case 13:
@@ -250,4 +251,34 @@ void Problema9()
         Suma+=Multiplicacion;
     }
     cout << "El resultado de la suma es: " << Suma << endl;
+}
+
+void Problema11()
+{
+    int Numero;
+    cout << "Ingrese un numero" << endl;
+    cin >> Numero;
+    int MCM=1;
+    list<int> Numeros, Factores;
+    for(int i=2; i<=Numero; i++)
+    {
+        Numeros.push_back(i);
+    }
+    int i=2;
+    while (i<=Numero)
+    {
+        bool AlMenosUno=false;
+        auto Pos=Numeros.begin();
+        for(int Dato : Numeros)
+        {
+            if(Dato%i==0)
+            {
+                *Pos=*Pos/i;
+                AlMenosUno=true;
+            }
+            Pos++;
+        }
+        (AlMenosUno) ? MCM*=i: i++;
+    }
+    cout << "El minimo comun multiplo es: " << MCM << endl;
 }

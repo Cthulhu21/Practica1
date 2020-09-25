@@ -51,10 +51,10 @@ int main()
             case 11:
                 Problema11();
                 break;
-            /*case 12:
+            case 12:
                 Problema12();
                 break;
-            case 13:
+            /*case 13:
                 Problema13();
                 break;
             case 15:
@@ -281,4 +281,25 @@ void Problema11()
         (AlMenosUno) ? MCM*=i: i++;
     }
     cout << "El minimo comun multiplo es: " << MCM << endl;
+}
+
+void Problema12()
+{
+    int Numero;
+    cout << "Ingrese un numero" << endl;
+    cin >> Numero;
+    int i=2, FactorPrimo=1;
+    while(Numero!=1)
+    {
+        if(Numero%i!=0)
+        {
+            i++;
+        }
+        else
+        {
+            Numero/=i;
+            FactorPrimo=i;
+        }
+    }
+    cout << "El factor primo maximo es: " << FactorPrimo << endl;
 }

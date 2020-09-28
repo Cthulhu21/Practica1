@@ -58,10 +58,10 @@ int main()
             case 13:
                 Problema13();
                 break;
-            /*case 15:
+            case 15:
                 Problema15();
                 break;
-            case 17:
+            /*case 17:
                 Problema17();
                 break;*/
             default:
@@ -336,4 +336,19 @@ bool Primo(int Numero)
         }
     }
     return true;
+}
+
+void Problema15()
+{
+    int Numero, Suma=1;
+    do
+    {
+        cout << "Ingrese un numero impar" << endl;
+        cin >> Numero;
+    }while(Numero%2==0 or Numero<0);
+    for(int i=Numero; i>1; i-=2)
+    {
+        Suma+=(4*(i*i))-(6*(i-1));
+    }
+    cout << "En una espiral " << Numero << "x" << Numero << " la suma es: " << Suma << endl;
 }

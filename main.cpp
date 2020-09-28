@@ -61,9 +61,9 @@ int main()
             case 15:
                 Problema15();
                 break;
-            /*case 17:
+            case 17:
                 Problema17();
-                break;*/
+                break;
             default:
                 break;
             }
@@ -260,7 +260,7 @@ void Problema11()
     cout << "Ingrese un numero" << endl;
     cin >> Numero;
     int MCM=1;
-    list<int> Numeros, Factores;
+    list<int> Numeros;
     for(int i=2; i<=Numero; i++)
     {
         Numeros.push_back(i);
@@ -351,4 +351,30 @@ void Problema15()
         Suma+=(4*(i*i))-(6*(i-1));
     }
     cout << "En una espiral " << Numero << "x" << Numero << " la suma es: " << Suma << endl;
+}
+
+void Problema17()
+{
+    int k, NTriangular=0, i=1;;
+    cout << "Ingrese un numero" << endl;
+    cin >> k;
+    bool Find=false;
+    do
+    {
+        int Cantidad=2;
+        NTriangular=i*(i+1)/2;
+        i++;
+        for(int j=2; j<=NTriangular/2; j++)
+        {
+            if(NTriangular%j==0)
+            {
+                Cantidad++;
+            }
+        }
+        if(Cantidad>k)
+        {
+            Find=true;
+        }
+    }while(!Find);
+    cout << NTriangular << endl;
 }

@@ -21,7 +21,7 @@ float Factorial(int);
 bool Primo(int);
 
 int main()
-{
+{    
     int a;
     //Se pide el ingreso del problema a revisar
     do
